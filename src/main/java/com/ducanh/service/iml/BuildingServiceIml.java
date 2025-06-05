@@ -24,7 +24,7 @@ public class BuildingServiceIml implements BuildingService{
 		for (BuildingEntity item : buildingEntities) {
 			BuildingTypeDTO building = new BuildingTypeDTO();
 			building.setName(item.getName());
-			building.setAddress(item.getName() + ",--"+ item.getWard()+"," + item.getStreet());
+			building.setAddress(item.getName() + ","+ item.getWard()+"," + item.getStreet());
 			result.add(building);
 		}
 		return result;
