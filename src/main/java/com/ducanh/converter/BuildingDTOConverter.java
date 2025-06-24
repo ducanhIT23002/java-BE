@@ -14,7 +14,7 @@ import com.ducanh.repository.entity.DistrictEntity;
 import com.ducanh.repository.entity.RentAreaEntity;
 
 @Component
-public class BuildingSearchConverter {
+public class BuildingDTOConverter {
 
 	@Autowired
 	private DistrictRepository districtRepository;
@@ -28,11 +28,13 @@ public class BuildingSearchConverter {
      public BuildingTypeDTO toBuildingTypeDTO(BuildingEntity item) {
     	 
 			BuildingTypeDTO building = modelMapper.map(item,BuildingTypeDTO.class);
-			building.setName(item.getName());
+			
+//			building.setName(item.getName());
+			
 			DistrictEntity districtEntity = districtRepository.findNameById(item.getDistrictId());
 			building.setAddress(item.getName() + ","+ item.getWard()+"," + item.getStreet() + " " + districtEntity.getName());
-			List<RentAreaEntity> rentAreaEntity = rentAreaRepository.findValueByBuildingId(item.getId());
 			
+			List<RentAreaEntity> rentAreaEntity = rentAreaRepository.findValueByBuildingId(item.getId());
 			//java7 : ko dung stream
 			StringBuilder sb = new StringBuilder();
 			for (int i = 0; i < rentAreaEntity.size(); i++) {
@@ -46,6 +48,7 @@ public class BuildingSearchConverter {
 			//java7 : ko dung stream
 
 			building.setRentValue(rentvalue);
+			
 			return building;
      }
 }

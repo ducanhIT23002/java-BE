@@ -6,7 +6,15 @@ public class BuildingTypeDTO {
    private String address;
    
    private String rentValue;
+   private Long rentPrice;
 
+
+	public Long getRentPrice() {
+		return rentPrice;
+	}
+	public void setRentPrice(Long rentPrice) {
+		this.rentPrice = rentPrice;
+	}
 	public String getRentValue() {
 		return rentValue;
 	}
