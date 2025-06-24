@@ -5,6 +5,14 @@ public class BuildingTypeDTO {
 
    private String address;
    
+   private String rentValue;
+
+	public String getRentValue() {
+		return rentValue;
+	}
+	public void setRentValue(String rentValue) {
+		this.rentValue = rentValue;
+	}
 	public String getAddress() {
 		return address;
 	}

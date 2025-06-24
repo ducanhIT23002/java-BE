@@ -62,7 +62,7 @@ public class BuildingRepositoryIml implements BuildingRepository{
 	    public static void querySpecial(Map<String, Object> params, List<String> typeCode, StringBuilder where) {
 	        String staffId = (String) params.get("staffId");
 	        if (StringUtils.checkString(staffId)) {
-	            where.append(" AND assignmentbuilding.staffId = " + staffId);
+	            where.append(" AND assignment_building.staffId = " + staffId);
 	        }
 
 	        String rentAreaTo = (String) params.get("areaTo");
