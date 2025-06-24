@@ -3,6 +3,7 @@ package com.ducanh.api;
 //import java.util.ArrayList;
 import java.util.List;
 //import java.util.Map;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,8 +27,8 @@ public class NewAPI {
     private BuildingService buildingService;
 
     @GetMapping("/building")
-    public Object testTour(@RequestParam (value = "name") String name) {
-        List<BuildingTypeDTO> result = buildingService.findAll(name);
+    public Object testTour(@RequestParam Map<String, Object> param,@RequestParam(name = "typecode",required = false) List<String> typecode) {
+        List<BuildingTypeDTO> result = buildingService.findAll(param,typecode);
         return result;
     }
 //    public void validate(BuildingTypeDTO tourType) throws ExceptionSetting {
