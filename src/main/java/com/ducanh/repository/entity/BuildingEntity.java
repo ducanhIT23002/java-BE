@@ -1,18 +1,53 @@
 package com.ducanh.repository.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name ="building")
 public class BuildingEntity {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    
+    @Column(name ="name") // Đây đã đúng rồi
     private String name;
+    
+    @Column(name ="districtid") // Thêm annotation này
     private Integer districtId;
+    
+    @Column(name ="street") // Đây đã đúng rồi
     private String street;
+    
+    @Column(name ="ward") // Đây đã đúng rồi
     private String ward;
+
+    @Column(name ="numberofbasement") // Thêm annotation này
     private Integer numberOfBasement;
+
+    @Column(name ="floorarea") // Thêm annotation này
     private Long floorArea;
+
+    @Column(name ="rentprice") // Thêm annotation này
     private Long rentPrice;
+
+    @Column(name ="managername") // Thêm annotation này
     private String managerName;
+
+    @Column(name ="managerphonenumber") // Thêm annotation này
     private String managerPhoneNumber;
+
+    @Column(name ="servicefee") // Thêm annotation này
     private Long serviceFee;
+
+    @Column(name ="brokeragefee") // Thêm annotation này
     private Long brokerageFee;
+    
 	public Integer getId() {
 		return id;
 	}
